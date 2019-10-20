@@ -26,13 +26,12 @@ class Chatbot extends Component {
         this.handlemessage=this.handlemessage.bind(this);     
     }
 
-    //add new message to buffer
+  
     handleaddmessage(event){
      this.state.messagebuffer.push(event[0]);
      this.setState({some:event[0],messagebuffer:this.state.messagebuffer});
     }
 
-    //communicate to chatbot
     handlemessage(para){
       var attr=[{mode:'client',time:0,type:'message',payload:para}];
       this.handleaddmessage(attr);
@@ -62,7 +61,7 @@ class Chatbot extends Component {
         }).catch((error) => console.log(error))
     }
   
-    //ScrollTothelastmessage
+   
     scrollToWithContainer() {
 
       let goToContainer = new Promise((resolve, reject) => {
@@ -89,13 +88,11 @@ class Chatbot extends Component {
         }));
     }
 
-    //Enter to send messages
     handleKeyPress = (event) => {
       if(event.key === 'Enter'){
         this.handlemessage(this.refs.messages.value)
       }
     }
-    
     render() {
     
       
